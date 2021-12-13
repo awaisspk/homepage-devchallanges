@@ -23,7 +23,7 @@ export const Header = () => {
     <StyledHeader>
       <Nav as="nav" main="spaceBtw" cross="center">
         <Logo />
-        <Link isActive={state} />
+        <Link isActive={state} setisActive={setState} />
         <MenuButton state={state} onClick={setState} />
       </Nav>
     </StyledHeader>

@@ -1,6 +1,7 @@
 import {Flex} from '@components/Flex';
 import {styled} from '@stitches';
 import NextLink from 'next/link';
+import {SetStateAction} from 'react';
 
 const links = [
   {name: 'Home', src: '#'},
@@ -64,14 +65,19 @@ const NavLink = styled('li', {
   },
 });
 
-export const Link = ({isActive}: {isActive: boolean}) => {
+type Props = {
+  isActive: boolean;
+  setisActive: React.Dispatch<SetStateAction<boolean>>;
+};
+
+export const Link = ({isActive, setisActive}: Props) => {
   return (
     <Wrapper active={isActive}>
       <Nav gap="8">
         {links.map((link, i) => (
           <NavLink key={i}>
             <NextLink href={link.src}>
-              <a>{link.name}</a>
+              <a onClick={() => setisActive((state) => !state)}>{link.name}</a>
             </NextLink>
             <Underline />
           </NavLink>
