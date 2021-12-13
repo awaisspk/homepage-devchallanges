@@ -19,7 +19,7 @@ const Wrapper = styled('div', {
     left: 0,
     right: 0,
     width: '100%',
-    backgroundColor: '$primary',
+    backgroundColor: 'white',
     transform: 'translateY(-100%)',
     transition: '0.4s',
   },
