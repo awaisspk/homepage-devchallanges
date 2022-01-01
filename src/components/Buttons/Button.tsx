@@ -4,21 +4,19 @@ import React from 'react';
 
 const StyledButton = styled(motion.button, {
   border: 'none',
-  linearGradient: ['$brand', '$blue0'],
-  color: '$white',
+  color: 'rgba(242, 242, 242, 1)',
   fontFamily: 'Inter',
-  fontSize: '$1',
+  fontSize: '$2',
   fontWeight: '$500',
   display: 'inline-flex',
   justifyContent: 'center',
   alignItems: 'center',
-  borderRadius: '$full',
+  borderRadius: '1em',
   userSelect: 'none',
   WebkitTapHighlightColor: 'transparent',
-
-  '& svg': {
-    marginRight: '0.5rem',
-  },
+  backgroundColor: 'rgba(45, 156, 219, 1)',
+  py: '$4',
+  px: '$7',
 
   '@supports selector(:focus-visible)': {
     '&:focus-visible': {
@@ -30,27 +28,23 @@ const StyledButton = styled(motion.button, {
 
   variants: {
     variant: {
-      circle: {
-        py: '$5',
-        px: '$5',
-        backgroundColor: 'white',
-        borderRadius: '$full',
-        alignSelf: 'center',
+      gray: {
+        color: '#828282',
+        py: '$3',
+        borderRadius: '0.8em',
+        backgroundColor: 'rgba(224, 224, 224, 1)',
+        '&:hover': {
+          color: 'white',
+          backgroundColor: 'rgba(45, 156, 219, 1)',
+        },
       },
     },
   },
 });
 
-type ButtonProps = {
-  icon?: 'arrow' | 'email' | 'github';
-};
-
 type StyledButtonProps = React.ComponentProps<typeof StyledButton>;
-type Props = StyledButtonProps & ButtonProps;
 
-export const Button: React.FC<Props> = ({icon, children, ...rest}) => {
-  const isIcon = icon !== undefined;
-
+export const Button: React.FC<StyledButtonProps> = ({children, ...rest}) => {
   const buttonVariants: Variants = {
     idle: {
       scale: 1,
@@ -66,13 +60,14 @@ export const Button: React.FC<Props> = ({icon, children, ...rest}) => {
   return (
     <>
       <StyledButton
-        css={{px: isIcon ? '10px' : '$3'}}
         variants={buttonVariants}
         initial="idle"
         whileHover="hover"
         whileTap="tap"
         {...rest}
-      ></StyledButton>
+      >
+        {children}
+      </StyledButton>
     </>
   );
 };

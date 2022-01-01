@@ -13,6 +13,7 @@ export const globalStyles = globalCss(...normalize, {
   html: {
     font: '100%/1.25 $fonts$primary',
     boxSizing: 'border-box',
+    overflow: 'auto',
   },
 
   '*, ::before, ::after': {

@@ -1,16 +1,10 @@
 import {styled, css} from '@stitches';
 
 const text = css({
-  color: '$gray12',
+  color: 'rgba(51, 51, 51, 1)',
 
   variants: {
     size: {
-      // corrective letter-spacing and text-indent styles
-      // should go here too, because they're determined by font-size.
-      // You could also put line-height here too, if your devs prefer
-      // a default line-height that works in some cases. But understand
-      // that line-height is also a function of line-length, so the
-      // default values here won't be optimal in many cases.
       1: {fontSize: '$1'},
       2: {fontSize: '$2'},
       3: {fontSize: '$3'},
@@ -21,18 +15,30 @@ const text = css({
       8: {fontSize: '$8'},
       9: {fontSize: '$9'},
     },
-    // other variants like color, weight, style, line-height etc.
   },
 });
 
-export const Text = styled('span', text);
+export const Text = styled('span', text, {
+  color: 'rgba(130, 130, 130, 1)',
+  fontSize: '0.9rem',
+});
+
 export const Quote = styled('q', text);
-export const Paragraph = styled('p', text);
 export const ListItem = styled('li', text);
 export const Small = styled('small', text);
 export const Deleted = styled('del', text);
 export const H1 = styled('h1', text);
-export const H2 = styled('h2', text);
+export const Paragraph = styled('p', text, {
+  fontSize: '0.9rem',
+  '@bp2': {
+    fontSize: '1rem',
+  },
+});
+
+export const H2 = styled('h2', text, {
+  lineHeight: '1.4',
+});
+
 export const H3 = styled('h3', text);
 export const H4 = styled('h4', text);
 export const H5 = styled('h5', text);
@@ -44,21 +50,9 @@ export const Em = styled('em', text, {fontStyle: 'italic'});
 export const Strong = styled('strong', text, {fontWeight: '$2'});
 export const Mark = styled('mark', text, {backgroundColor: '$yellow3'});
 
-// define additional variants where necessary
-export const Link = styled('a', text, {
-  variants: {
-    // link styles like color, text-decoration etc.
-  },
-});
-
-// then export a second layer of pre-formatted components
-// for specific use-cases e.g. Title, SubHeading, Paragraph, Heading etc.
 export const Title = styled('h1', {
-  color: '$gray12',
-  fontSize: '$8',
-  lineHeight: '$8',
-  '@bp2': {
-    fontSize: '$9',
-    lineHeight: '$9',
-  },
+  color: 'rgba(51, 51, 51, 1)',
+  fontSize: 'clamp(1.5rem, 5vw - 0.25rem, 3rem)',
+  width: 'min(16ch,100%)',
+  lineHeight: '1.2',
 });

@@ -42,15 +42,19 @@ const Nav = styled('ul', Flex, {
 });
 
 const Underline = styled('div', {
-  backgroundColor: 'rgba(51, 51, 51, 1)',
-  height: '3px',
+  position: 'absolute',
+  right: 0,
+  bottom: 0,
   width: '0%',
-  transition: '0.5s',
-  borderRadius: '100px',
+  background: 'CurrentColor',
+  height: 2,
+  borderRadius: '$full',
+  transition: 'all 300ms ease-in-out',
 });
 
 const NavLink = styled('li', {
   listStyle: 'none',
+  position: 'relative',
   '& a': {
     fontFamily: '$primary',
     fontWeight: '$500',
@@ -60,6 +64,8 @@ const NavLink = styled('li', {
 
   '&:hover': {
     [`& ${Underline}`]: {
+      left: 0,
+      right: 'auto',
       width: '100%',
     },
   },

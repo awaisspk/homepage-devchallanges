@@ -5,7 +5,6 @@ import {useState} from 'react';
 import {Link} from './Nav';
 
 const StyledHeader = styled('header', {
-  // height: '100px',
   display: 'flex',
   alignItems: 'center',
   position: 'relative',

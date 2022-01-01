@@ -7,7 +7,6 @@ export {
   H5,
   H6,
   Ins,
-  Link,
   Mark,
   Text,
   Quote,
