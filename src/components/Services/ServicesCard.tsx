@@ -5,18 +5,23 @@ import {styled} from '@stitches';
 import {ReactNode} from 'react';
 
 const Wrapper = styled('section', Flex, {
-  flexBasis: 'min(300px,100%)',
   borderRadius: '1.2em',
-  py: '$5',
-  px: '$5',
+  py: '$8',
+  px: '$8',
   transition: 'all 300ms',
+
   '&:hover': {
     boxShadow: '0px 10px 30px 0px #3333331A',
   },
 
-  '@bpmax2': {
-    flexGrow: '1',
+  '@bp1': {
+    py: '$10',
+    px: '$10',
   },
+
+  // '@bp4': {
+  //   maxWidth: '320px',
+  // },
 });
 
 export type CardProps = {
@@ -43,7 +48,9 @@ export const ServicesCard = (props: CardProps) => {
         {icon}
       </Flex>
       <H2 size="4">{title}</H2>
-      <Paragraph css={{color: '#4F4F4F', width: 'min(30ch,100%)'}}>
+      <Paragraph
+        css={{color: '#4F4F4F', width: 'min(50ch, 100%)', fontWeight: '$400'}}
+      >
         {content}
       </Paragraph>
       <Button variant="gray">Get started</Button>

@@ -1,6 +1,7 @@
 import {Flex} from '@components/Flex';
 import {CardProps, ServicesCard} from '@components/Services/ServicesCard';
-import {H2, H3} from '@components/Typography';
+import {H2} from '@components/Typography';
+import {styled} from '@stitches';
 import {Pen, CodeIcon, Database} from './icons';
 
 const data: CardProps[] = [
@@ -27,33 +28,36 @@ const data: CardProps[] = [
   },
 ];
 
+const CardContainer = styled('div', {
+  display: 'grid',
+  gap: '1em',
+
+  '@bp2': {
+    gridTemplateColumns: '1fr 1fr',
+  },
+
+  '@bp4': {
+    gridTemplateColumns: '1fr 1fr 1fr',
+  },
+});
+
 export const Services = () => {
   return (
-    <Flex
-      flow="col"
-      as="section"
-      css={{mt: '100px', marginX: 'auto', width: 'min(1100px,100%)'}}
-      gap="7"
-    >
+    <Flex flow="col" as="section" gap="7">
       <H2
         css={{
           fontSize: 'clamp(1.5rem, 3vw + 0.5rem, 2rem)',
-          fontWeight : '$500',
+          fontWeight: '$500',
           width: 'min(15ch,100%)',
         }}
       >
         We offer high demand services
       </H2>
-      <Flex
-        flow="row"
-        wrap="wrap"
-        // gap="5"
-        main="spaceBtw"
-      >
+      <CardContainer>
         {data.map((d, i) => (
           <ServicesCard {...d} key={i} />
         ))}
-      </Flex>
+      </CardContainer>
     </Flex>
   );
 };
